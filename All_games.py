@@ -7,7 +7,7 @@ print("_________________")
 print("LET'S HAVE SOME FUN ")
 print("_______________________")
 print("This are the games:")
-print(" 1.CHOICE GAME \n 2.QUIZ \n 3.SLOT MACHINE \n 4.TIK-TAK-TOE\n")
+print(" 1.CHOICE GAME \n 2.QUIZ \n 3.SLOT MACHINE \n 4.TIK-TAK-TOE\n5.Random lader")
 op=int(input("\tEnter your choice:"))
 
 if op==1:
