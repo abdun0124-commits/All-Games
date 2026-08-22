@@ -349,3 +349,70 @@ elif op==4:
 
         # Switch turns
         turn = "O" if turn == "X" else "X"
+
+elif op==5:
+
+    MAX = 50
+    stack = [None] * MAX
+    top = -1
+
+    def push(value):
+        global top
+        if top == MAX - 1:
+            print("Game Over (stack full)")
+        else:
+            top += 1
+            stack[top] = value
+
+    def pop():
+        global top
+        if top == -1:
+            print("Stack is empty")
+        else:
+            value = stack[top]
+            stack[top] = None
+            top -= 1
+            return value
+
+    def display():
+        if top == -1:
+            print("No dice rolls yet")
+        else:
+            print("Dice roll history:", stack[:top+1])
+
+    def roll_dice():
+        return random.randint(1, 6)
+
+    # Player position
+    position = 0
+
+    while True:
+        print("\n--- Dice Game Menu ---")
+        print("1. Roll Dice")
+        print("2. Show Roll History")
+        print("3. Quit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            dice = roll_dice()
+            print("Dice:", dice)
+            push(dice)
+            position += dice
+            if position > 50:
+                position = 50
+            print("Player position:", position)
+
+            if position == 50:
+                print("🎉 You reached 50! You win!")
+                break
+
+        elif choice == "2":
+            display()
+
+        elif choice == "3":
+            print("Thanks for playing!")
+            break
+
+        else:
+            print("Invalid choice. Try again.")
