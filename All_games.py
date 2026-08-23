@@ -416,3 +416,11 @@ elif op==5:
 
         else:
             print("Invalid choice. Try again.")
+
+elif op==6:
+    import numpy as np
+def print_board():
+    board=np.array(['','',''],
+                    ['','',''],
+                    ['','',''])
+    print(board)
