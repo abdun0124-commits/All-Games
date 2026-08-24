@@ -7,7 +7,7 @@ print("_________________")
 print("LET'S HAVE SOME FUN ")
 print("_______________________")
 print("This are the games:")
-print(" 1.CHOICE GAME \n 2.QUIZ \n 3.SLOT MACHINE \n 4.TIK-TAK-TOE\n5.Random lader")
+print(" 1.CHOICE GAME \n 2.QUIZ \n 3.SLOT MACHINE \n 4.TIK-TAK-TOE\n5.Random lader\n6.Rock,Paper,Scissor")
 op=int(input("\tEnter your choice:"))
 
 if op==1:
@@ -418,9 +418,36 @@ elif op==5:
             print("Invalid choice. Try again.")
 
 elif op==6:
-    import numpy as np
-def print_board():
-    board=np.array(['','',''],
-                    ['','',''],
-                    ['','',''])
-    print(board)
+    you_win=0
+    computer_win=0
+
+    op=["rock","paper","scissor"]
+
+    while True:
+        user=input("Enter the your option rock||paper||scissor or quit(q): ").lower()
+        if user=="q":
+            break
+        if user not in op:
+            continue
+
+        random_pick=random.randint(0,2)
+        com_pick=op[random_pick]
+        print("computer pick",com_pick +".")
+
+        if user=="rock" and com_pick=="scissor":
+            print("You Win!!!!\n")
+            you_win+=1
+        elif user=="paper" and com_pick=="rock":
+            print("You Win!!!!")
+            you_win+=1
+        elif user=="scissor" and com_pick=="paper":
+            print("You Win!!!!")
+            you_win+=1
+        else:
+            print("You loss!!")
+            computer_win+=1
+
+    print("You have wine:",you_win ,"times.")
+    print("computer have wine:",computer_win ,"times.")
+    print("Thanks for playing")
+        
